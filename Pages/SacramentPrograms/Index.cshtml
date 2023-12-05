@@ -1,0 +1,126 @@
+﻿@page
+@model SacramentProgramBuilder.Pages.SacramentPrograms.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SacramentProgram[0].ProgramDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SacramentProgram[0].PresidingName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SacramentProgram[0].ConductingName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SacramentProgram[0].OpeningPrayerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SacramentProgram[0].OpeningHymnName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SacramentProgram[0].OpeningHymnNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SacramentProgram[0].SacramentHymnName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SacramentProgram[0].SacramentHymnNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SacramentProgram[0].SpeakerType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SacramentProgram[0].SpeakerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SacramentProgram[0].SpecialMusicalNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SacramentProgram[0].IntermediateHymnName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SacramentProgram[0].IntermediateHymnNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SacramentProgram[0].ClosingPrayerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SacramentProgram[0].ClosingHymnName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SacramentProgram[0].ClosingHymnNum)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.SacramentProgram) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProgramDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PresidingName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConductingName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OpeningPrayerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OpeningHymnName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OpeningHymnNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SacramentHymnName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SacramentHymnNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpeakerType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpeakerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpecialMusicalNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntermediateHymnName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntermediateHymnNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClosingPrayerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClosingHymnName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClosingHymnNum)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,110 @@
+﻿@page "{id:int?}"
+@model SacramentProgramBuilder.Pages.SacramentPrograms.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>SacramentProgram</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SacramentProgram.Id" />
+            <div class="form-group">
+                <label asp-for="SacramentProgram.ProgramDate" class="control-label"></label>
+                <input asp-for="SacramentProgram.ProgramDate" class="form-control" />
+                <span asp-validation-for="SacramentProgram.ProgramDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SacramentProgram.PresidingName" class="control-label"></label>
+                <input asp-for="SacramentProgram.PresidingName" class="form-control" />
+                <span asp-validation-for="SacramentProgram.PresidingName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SacramentProgram.ConductingName" class="control-label"></label>
+                <input asp-for="SacramentProgram.ConductingName" class="form-control" />
+                <span asp-validation-for="SacramentProgram.ConductingName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SacramentProgram.OpeningPrayerName" class="control-label"></label>
+                <input asp-for="SacramentProgram.OpeningPrayerName" class="form-control" />
+                <span asp-validation-for="SacramentProgram.OpeningPrayerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SacramentProgram.OpeningHymnName" class="control-label"></label>
+                <input asp-for="SacramentProgram.OpeningHymnName" class="form-control" />
+                <span asp-validation-for="SacramentProgram.OpeningHymnName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SacramentProgram.OpeningHymnNum" class="control-label"></label>
+                <input asp-for="SacramentProgram.OpeningHymnNum" class="form-control" />
+                <span asp-validation-for="SacramentProgram.OpeningHymnNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SacramentProgram.SacramentHymnName" class="control-label"></label>
+                <input asp-for="SacramentProgram.SacramentHymnName" class="form-control" />
+                <span asp-validation-for="SacramentProgram.SacramentHymnName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SacramentProgram.SacramentHymnNum" class="control-label"></label>
+                <input asp-for="SacramentProgram.SacramentHymnNum" class="form-control" />
+                <span asp-validation-for="SacramentProgram.SacramentHymnNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SacramentProgram.SpeakerType" class="control-label"></label>
+                <input asp-for="SacramentProgram.SpeakerType" class="form-control" />
+                <span asp-validation-for="SacramentProgram.SpeakerType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SacramentProgram.SpeakerName" class="control-label"></label>
+                <input asp-for="SacramentProgram.SpeakerName" class="form-control" />
+                <span asp-validation-for="SacramentProgram.SpeakerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SacramentProgram.SpecialMusicalNumber" class="control-label"></label>
+                <input asp-for="SacramentProgram.SpecialMusicalNumber" class="form-control" />
+                <span asp-validation-for="SacramentProgram.SpecialMusicalNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SacramentProgram.IntermediateHymnName" class="control-label"></label>
+                <input asp-for="SacramentProgram.IntermediateHymnName" class="form-control" />
+                <span asp-validation-for="SacramentProgram.IntermediateHymnName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SacramentProgram.IntermediateHymnNum" class="control-label"></label>
+                <input asp-for="SacramentProgram.IntermediateHymnNum" class="form-control" />
+                <span asp-validation-for="SacramentProgram.IntermediateHymnNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SacramentProgram.ClosingPrayerName" class="control-label"></label>
+                <input asp-for="SacramentProgram.ClosingPrayerName" class="form-control" />
+                <span asp-validation-for="SacramentProgram.ClosingPrayerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SacramentProgram.ClosingHymnName" class="control-label"></label>
+                <input asp-for="SacramentProgram.ClosingHymnName" class="form-control" />
+                <span asp-validation-for="SacramentProgram.ClosingHymnName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SacramentProgram.ClosingHymnNum" class="control-label"></label>
+                <input asp-for="SacramentProgram.ClosingHymnNum" class="form-control" />
+                <span asp-validation-for="SacramentProgram.ClosingHymnNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
