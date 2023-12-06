@@ -55,14 +55,26 @@
                 <span asp-validation-for="SacramentProgram.SacramentHymnNum" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SacramentProgram.SpeakerType" class="control-label"></label>
-                <input asp-for="SacramentProgram.SpeakerType" class="form-control" />
-                <span asp-validation-for="SacramentProgram.SpeakerType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SacramentProgram.SpeakerName" class="control-label"></label>
-                <input asp-for="SacramentProgram.SpeakerName" class="form-control" />
-                <span asp-validation-for="SacramentProgram.SpeakerName" class="text-danger"></span>
+                <label asp-for="SacramentProgram.Speakers" class="control-label">Speakers</label>
+                <div id="speakerContainer">
+                    @for (int i = 0; i < Model.SacramentProgram.Speakers.Count; i++)
+                    {
+                        <div class="speaker-group">
+                            <div class="form-group">
+                                <label asp-for="SacramentProgram.Speakers[i].Name" class="control-label">Name</label>
+                                <input asp-for="SacramentProgram.Speakers[i].Name" class="form-control" />
+                                <span asp-validation-for="SacramentProgram.Speakers[i].Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="SacramentProgram.Speakers[i].SpeakerType" class="control-label">Speaker Type</label>
+                                <input asp-for="SacramentProgram.Speakers[i].SpeakerType" class="form-control" />
+                                <span asp-validation-for="SacramentProgram.Speakers[i].SpeakerType" class="text-danger"></span>
+                            </div>
+                            <button type="button" class="btn btn-danger" onclick="removeSpeaker(this)">Delete</button>
+                        </div>
+                    }
+                </div>
+                <button type="button" class="btn btn-primary" onclick="addSpeaker()">Add Speaker</button>
             </div>
             <div class="form-group">
                 <label asp-for="SacramentProgram.SpecialMusicalNumber" class="control-label"></label>
@@ -106,5 +118,42 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        function addSpeaker () {
+            var index = $('.speaker-group').length;
+            var inputHtml = `
+                <div class="speaker-group">
+                    <div class="form-group">
+                        <label asp-for="SacramentProgram.Speakers[${index}].Name" class="control-label">Name</label>
+                        <input name="SacramentProgram.Speakers[${index}].Name" class="form-control" />
+                        <span class="text-danger" data-valmsg-for="SacramentProgram.Speakers[${index}].Name" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SacramentProgram.Speakers[${index}].SpeakerType" class="control-label">Speaker Type</label>
+                        <input name="SacramentProgram.Speakers[${index}].SpeakerType" class="form-control" />
+                        <span class="text-danger" data-valmsg-for="SacramentProgram.Speakers[${index}].Name" data-valmsg-replace="true"></span>
+                    </div>
+                    <button type="button" class="btn btn-danger" onclick="removeSpeaker(this)">Delete</button>
+                </div>
+            `;
+            $(inputHtml).appendTo("#speakerContainer");
+        }
+
+        function removeSpeaker (button) {
+            var speakerGroup = $(button).closest('.speaker-group');
+            var isExistingSpeaker = speakerGroup.find("input[name*='.Name']").val() !== 'DELETED';
+
+            if (isExistingSpeaker) {
+                // Mark the existing speaker for deletion by updating its name
+                speakerGroup.find("input[name*='.Name']").val('DELETED');
+                speakerGroup.hide();
+            } else {
+                // If it's a new speaker, just remove it from the DOM
+                speakerGroup.remove();
+            }
+        }
+    </script>
 }

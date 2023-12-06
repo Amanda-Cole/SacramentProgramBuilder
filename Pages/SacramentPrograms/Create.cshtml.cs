@@ -36,6 +36,12 @@ namespace SacramentProgramBuilder.Pages.SacramentPrograms
                 return Page();
             }
 
+            // Add speakers to the SacramentProgram
+            foreach (var speaker in SacramentProgram.Speakers)
+            {
+                // You might want to add validation or additional processing here
+            }
+
             _context.SacramentProgram.Add(SacramentProgram);
             await _context.SaveChangesAsync();
 

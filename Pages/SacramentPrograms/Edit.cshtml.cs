@@ -30,7 +30,9 @@ namespace SacramentProgramBuilder.Pages.SacramentPrograms
                 return NotFound();
             }
 
-            var sacramentprogram =  await _context.SacramentProgram.FirstOrDefaultAsync(m => m.Id == id);
+            var sacramentprogram = await _context.SacramentProgram
+                .Include(s => s.Speakers)
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (sacramentprogram == null)
             {
                 return NotFound();
@@ -47,6 +49,8 @@ namespace SacramentProgramBuilder.Pages.SacramentPrograms
             {
                 return Page();
             }
+
+            SacramentProgram.Speakers.RemoveAll(speaker => speaker.Name == "DELETED");
 
             _context.Attach(SacramentProgram).State = EntityState.Modified;
 
@@ -71,7 +75,7 @@ namespace SacramentProgramBuilder.Pages.SacramentPrograms
 
         private bool SacramentProgramExists(int id)
         {
-          return (_context.SacramentProgram?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.SacramentProgram?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

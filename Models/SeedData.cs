@@ -16,7 +16,6 @@ public static class SeedData
                 throw new ArgumentNullException("Null RazorPagesMovieContext");
             }
 
-            // Look for any movies.
             if (context.SacramentProgram.Any())
             {
                 return;   // DB has been seeded
@@ -33,8 +32,13 @@ public static class SeedData
                     OpeningHymnNum = 301,
                     SacramentHymnName = "Upon the cross of Calvary",
                     SacramentHymnNum = 199,
-                    SpeakerType = "Speaker",
-                    SpeakerName = "Austin Cole",
+                    Speakers = new List<Speaker>
+                        {
+                            new Speaker {
+                                Name = "Austin Cole",
+                                SpeakerType = "Speaker"
+                            },
+                        },
                     IntermediateHymnName = "Put your Shoulder to the Wheel",
                     IntermediateHymnNum = 84,
                     ClosingPrayerName = "Sarah Lewis",
@@ -53,15 +57,20 @@ public static class SeedData
                     OpeningHymnNum = 298,
                     SacramentHymnName = "I know that my Redeemer Lives",
                     SacramentHymnNum = 197,
-                    SpeakerType = "Speaker",
-                    SpeakerName = "Justin Lewis",
+                    Speakers = new List<Speaker>
+                        {
+                            new Speaker {
+                                Name = "Justin Lewis",
+                                SpeakerType = "Speaker"
+                            },
+                        },
                     IntermediateHymnName = "Joy to the world",
                     IntermediateHymnNum = 325,
                     ClosingPrayerName = "James Larsen",
                     ClosingHymnName = "Silent Night",
                     ClosingHymnNum = 326
                 }
-            ); 
+            );
             context.SaveChanges();
         }
     }

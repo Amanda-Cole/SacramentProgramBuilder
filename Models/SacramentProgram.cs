@@ -14,13 +14,13 @@ namespace SacramentProgramBuilder.Models
         [Display(Name = "Presiding")]
         public string? PresidingName { get; set; }
 
-        [Display(Name ="Conducting")]
+        [Display(Name = "Conducting")]
         public string? ConductingName { get; set; }
 
-        [Display(Name ="Invocation")]
+        [Display(Name = "Invocation")]
         public string? OpeningPrayerName { get; set; }
 
-        [Display(Name ="Opening Hymn")]
+        [Display(Name = "Opening Hymn")]
         public string? OpeningHymnName { get; set; }
         [Display(Name = "Page")]
         public int? OpeningHymnNum { get; set; }
@@ -31,11 +31,8 @@ namespace SacramentProgramBuilder.Models
         [Display(Name = "Page")]
         public int? SacramentHymnNum { get; set; }
 
-        [Display(Name = "Speaker Type")]
-        public string? SpeakerType { get; set; } //Youth speaker, Speaker, or Article of Faith Enum?
-
         [Display(Name = "Speaker")]
-        public string? SpeakerName { get; set; }
+        public List<Speaker> Speakers { get; set; } = new List<Speaker>();
 
         [Display(Name = "Special Musical Number")]
         public string? SpecialMusicalNumber { get; set; }//choir Name or musical quest name

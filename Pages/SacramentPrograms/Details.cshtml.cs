@@ -19,7 +19,7 @@ namespace SacramentProgramBuilder.Pages.SacramentPrograms
             _context = context;
         }
 
-      public SacramentProgram SacramentProgram { get; set; } = default!; 
+        public SacramentProgram SacramentProgram { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,12 +28,14 @@ namespace SacramentProgramBuilder.Pages.SacramentPrograms
                 return NotFound();
             }
 
-            var sacramentprogram = await _context.SacramentProgram.FirstOrDefaultAsync(m => m.Id == id);
+            var sacramentprogram = await _context.SacramentProgram
+                .Include(s => s.Speakers)
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (sacramentprogram == null)
             {
                 return NotFound();
             }
-            else 
+            else
             {
                 SacramentProgram = sacramentprogram;
             }

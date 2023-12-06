@@ -14,6 +14,7 @@ namespace SacramentProgramBuilder.Data
         {
         }
 
-        public DbSet<SacramentProgramBuilder.Models.SacramentProgram> SacramentProgram { get; set; } = default!;
+        public DbSet<SacramentProgram> SacramentProgram { get; set; } = default!;
+        public DbSet<Speaker> Speaker { get; set; } = default!;
     }
 }
