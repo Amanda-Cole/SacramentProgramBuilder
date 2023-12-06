@@ -12,9 +12,12 @@ namespace SacramentProgramBuilder.Models
         public DateTime ProgramDate { get; set; }
 
         [Display(Name = "Presiding")]
+        [Required]
+
         public string? PresidingName { get; set; }
 
         [Display(Name ="Conducting")]
+        [Required]
         public string? ConductingName { get; set; }
 
         [Display(Name ="Invocation")]
