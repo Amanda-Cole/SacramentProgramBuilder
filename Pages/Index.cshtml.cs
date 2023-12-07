@@ -12,9 +12,9 @@ namespace SacramentProgramBuilder.Pages
             _logger = logger;
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
-
+            return RedirectToPage("/SacramentPrograms/Index");
         }
     }
 }
