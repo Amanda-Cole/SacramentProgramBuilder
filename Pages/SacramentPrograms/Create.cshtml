@@ -55,16 +55,18 @@
             </div>
             <div class="form-group">
                 <label asp-for="SacramentProgram.Speakers" class="control-label">Speakers</label>
-                <div id="speakerContainer">
-                    <div class="form-group">
-                        <label asp-for="SacramentProgram.Speakers[0].Name" class="control-label">Name</label>
-                        <input asp-for="SacramentProgram.Speakers[0].Name" class="form-control" />
-                        <span asp-validation-for="SacramentProgram.Speakers[0].Name" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="SacramentProgram.Speakers[0].SpeakerType" class="control-label">Speaker Type</label>
-                        <input asp-for="SacramentProgram.Speakers[0].SpeakerType" class="form-control" />
-                        <span asp-validation-for="SacramentProgram.Speakers[0].SpeakerType" class="text-danger"></span>
+                <div id="speaker-container">
+                    <div class="speaker-group">
+                        <div class="form-group">
+                            <label asp-for="SacramentProgram.Speakers[0].Name" class="control-label">Name</label>
+                            <input asp-for="SacramentProgram.Speakers[0].Name" class="form-control" />
+                            <span asp-validation-for="SacramentProgram.Speakers[0].Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SacramentProgram.Speakers[0].SpeakerType" class="control-label">Speaker Type</label>
+                            <input asp-for="SacramentProgram.Speakers[0].SpeakerType" class="form-control" />
+                            <span asp-validation-for="SacramentProgram.Speakers[0].SpeakerType" class="text-danger"></span>
+                        </div>
                     </div>
                 </div>
                 <button type="button" class="btn btn-primary" onclick="addSpeaker()">Add Speaker</button>
@@ -116,20 +118,22 @@
     }
     <script>
         function addSpeaker () {
-            var index = 1;
+            var index = $('.speaker-group').length;
             var inputHtml = `
-                <div class="form-group">
-                    <label asp-for="SacramentProgram.Speakers[${index}].Name" class="control-label">Name</label>
-                    <input asp-for="SacramentProgram.Speakers[${index}].Name" class="form-control" />
-                    <span asp-validation-for="SacramentProgram.Speakers[${index}].Name" class="text-danger" ></span>
+                <div class="speaker-group">
+                    <div class="form-group">
+                        <label class="control-label">Name</label>
+                        <input name="SacramentProgram.Speakers[${index}].Name" class="form-control" />
+                        <span class="text-danger" data-valmsg-for="SacramentProgram.Speakers[${index}].Name" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Speaker Type</label>
+                        <input name="SacramentProgram.Speakers[${index}].SpeakerType" class="form-control" />
+                        <span class="text-danger" data-valmsg-for="SacramentProgram.Speakers[${index}].SpeakerType" data-valmsg-replace="true"></span>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label asp-for="SacramentProgram.Speakers[${index}].SpeakerType" class="control-label">Speaker Type</label>
-                    <input asp-for="SacramentProgram.Speakers[${index}].SpeakerType" class="form-control" />
-                    <span asp-validation-for="SacramentProgram.Speakers[${index}].SpeakerType" class="text-danger" ></span>
-                </div>
-             `;
-            $(inputHtml).appendTo("#speakerContainer");
+            `;
+            $(inputHtml).appendTo("#speaker-container");
         }
     </script>
 }

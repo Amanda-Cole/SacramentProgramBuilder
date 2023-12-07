@@ -60,6 +60,8 @@
                     @for (int i = 0; i < Model.SacramentProgram.Speakers.Count; i++)
                     {
                         <div class="speaker-group">
+                            <input type="hidden" asp-for="SacramentProgram.Speakers[i].Id" />
+                            <input type="hidden" asp-for="SacramentProgram.Speakers[i].MarkedForDeletion" />
                             <div class="form-group">
                                 <label asp-for="SacramentProgram.Speakers[i].Name" class="control-label">Name</label>
                                 <input asp-for="SacramentProgram.Speakers[i].Name" class="form-control" />
@@ -70,7 +72,7 @@
                                 <input asp-for="SacramentProgram.Speakers[i].SpeakerType" class="form-control" />
                                 <span asp-validation-for="SacramentProgram.Speakers[i].SpeakerType" class="text-danger"></span>
                             </div>
-                            <button type="button" class="btn btn-danger" onclick="removeSpeaker(this)">Delete</button>
+                            <button type="button" class="btn btn-danger" onclick="removeSpeaker(this)" id="delete-@i">Delete</button>
                         </div>
                     }
                 </div>
@@ -143,17 +145,16 @@
         }
 
         function removeSpeaker (button) {
-            var speakerGroup = $(button).closest('.speaker-group');
-            var isExistingSpeaker = speakerGroup.find("input[name*='.Name']").val() !== 'DELETED';
+            var $speakerGroup = $(button).closest('.speaker-group');
 
-            if (isExistingSpeaker) {
-                // Mark the existing speaker for deletion by updating its name
-                speakerGroup.find("input[name*='.Name']").val('DELETED');
-                speakerGroup.hide();
-            } else {
-                // If it's a new speaker, just remove it from the DOM
-                speakerGroup.remove();
+            var idAttr = $(button).attr('id');
+            if (idAttr) {
+                var index = idAttr.split('-')[1];
+                var $markedForDeletionInput = $speakerGroup.find("input[id='SacramentProgram_Speakers_" + index + "__MarkedForDeletion']");
+                $markedForDeletionInput.val('true');
             }
+
+            $speakerGroup.css({ "display": "none" });
         }
     </script>
 }

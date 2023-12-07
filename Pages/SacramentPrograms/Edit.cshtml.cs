@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SacramentProgramBuilder.Data;
 using SacramentProgramBuilder.Models;
@@ -13,9 +8,9 @@ namespace SacramentProgramBuilder.Pages.SacramentPrograms
 {
     public class EditModel : PageModel
     {
-        private readonly SacramentProgramBuilder.Data.SacramentProgramBuilderContext _context;
+        private readonly SacramentProgramBuilderContext _context;
 
-        public EditModel(SacramentProgramBuilder.Data.SacramentProgramBuilderContext context)
+        public EditModel(SacramentProgramBuilderContext context)
         {
             _context = context;
         }
@@ -50,12 +45,24 @@ namespace SacramentProgramBuilder.Pages.SacramentPrograms
                 return Page();
             }
 
-            SacramentProgram.Speakers.RemoveAll(speaker => speaker.Name == "DELETED");
-
             _context.Attach(SacramentProgram).State = EntityState.Modified;
 
             try
             {
+                var speakersToRemove = SacramentProgram.Speakers.Where(speaker => speaker.MarkedForDeletion).ToList();
+
+                if (speakersToRemove.Count > 0)
+                {
+                    foreach (var speaker in speakersToRemove)
+                    {
+                        var speakerToRemove = _context.Speaker.Find(speaker.Id);
+                        if (speakerToRemove != null)
+                        {
+                            _context.Speaker.Remove(speakerToRemove);
+                        }
+                    }
+                }
+
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)

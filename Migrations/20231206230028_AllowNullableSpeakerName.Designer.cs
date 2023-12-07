@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SacramentProgramBuilder.Data;
 
@@ -11,9 +12,11 @@ using SacramentProgramBuilder.Data;
 namespace SacramentProgramBuilder.Migrations
 {
     [DbContext(typeof(SacramentProgramBuilderContext))]
-    partial class SacramentProgramBuilderContextModelSnapshot : ModelSnapshot
+    [Migration("20231206230028_AllowNullableSpeakerName")]
+    partial class AllowNullableSpeakerName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -94,9 +97,6 @@ namespace SacramentProgramBuilder.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<bool>("MarkedForDeletion")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
