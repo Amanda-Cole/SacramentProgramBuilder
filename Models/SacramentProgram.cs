@@ -28,7 +28,7 @@ namespace SacramentProgramBuilder.Models
 
         [Display(Name ="Opening Hymn")]
         [Required]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$")]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z,'\s]*$")]
         public string? OpeningHymnName { get; set; }
 
         [Display(Name = "Page")]
@@ -38,7 +38,7 @@ namespace SacramentProgramBuilder.Models
 
         [Display(Name = "Sacrament Hymn")]
         [Required]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$")]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z,'\s]*$")]
         public string? SacramentHymnName { get; set; }
 
         [Display(Name = "Page")]
@@ -50,11 +50,11 @@ namespace SacramentProgramBuilder.Models
         public List<Speaker> Speakers { get; set; } = new List<Speaker>();
 
         [Display(Name = "Special Musical Number")]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$")]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z,'\s]*$")]
         public string? SpecialMusicalNumber { get; set; }//choir Name or musical quest name
 
         [Display(Name = "Intermediate Hymn")]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$")]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z,'\s]*$")]
         public string? IntermediateHymnName { get; set; }
 
         [Display(Name = "Page")]
@@ -68,7 +68,7 @@ namespace SacramentProgramBuilder.Models
 
         [Display(Name = "Closing Hymn")]
         [Required]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$")]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z,'\s]*$")]
         public string? ClosingHymnName { get; set; }
 
         [Display(Name = "Page")]
