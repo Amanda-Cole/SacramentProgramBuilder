@@ -5,111 +5,140 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Create New Meeting Program</h1>
 
-<h4>SacramentProgram</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="SacramentProgram.ProgramDate" class="control-label"></label>
-                <input asp-for="SacramentProgram.ProgramDate" class="form-control" />
-                <span asp-validation-for="SacramentProgram.ProgramDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SacramentProgram.PresidingName" class="control-label"></label>
-                <input asp-for="SacramentProgram.PresidingName" class="form-control" />
-                <span asp-validation-for="SacramentProgram.PresidingName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SacramentProgram.ConductingName" class="control-label"></label>
-                <input asp-for="SacramentProgram.ConductingName" class="form-control" />
-                <span asp-validation-for="SacramentProgram.ConductingName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SacramentProgram.OpeningPrayerName" class="control-label"></label>
-                <input asp-for="SacramentProgram.OpeningPrayerName" class="form-control" />
-                <span asp-validation-for="SacramentProgram.OpeningPrayerName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SacramentProgram.OpeningHymnName" class="control-label"></label>
-                <input asp-for="SacramentProgram.OpeningHymnName" class="form-control" />
-                <span asp-validation-for="SacramentProgram.OpeningHymnName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SacramentProgram.OpeningHymnNum" class="control-label"></label>
-                <input asp-for="SacramentProgram.OpeningHymnNum" class="form-control" />
-                <span asp-validation-for="SacramentProgram.OpeningHymnNum" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SacramentProgram.SacramentHymnName" class="control-label"></label>
-                <input asp-for="SacramentProgram.SacramentHymnName" class="form-control" />
-                <span asp-validation-for="SacramentProgram.SacramentHymnName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SacramentProgram.SacramentHymnNum" class="control-label"></label>
-                <input asp-for="SacramentProgram.SacramentHymnNum" class="form-control" />
-                <span asp-validation-for="SacramentProgram.SacramentHymnNum" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SacramentProgram.Speakers" class="control-label">Speakers</label>
-                <div id="speaker-container">
-                    <div class="speaker-group">
-                        <div class="form-group">
-                            <label asp-for="SacramentProgram.Speakers[0].Name" class="control-label">Name</label>
-                            <input asp-for="SacramentProgram.Speakers[0].Name" class="form-control" />
-                            <span asp-validation-for="SacramentProgram.Speakers[0].Name" class="text-danger"></span>
+<div class="border rounded bg-white bg-opacity-75 p-4">
+    <div class="row justify-content-center">
+        <div class="col-sm-10 col-md-8 col-lg-6 border border-dark rounded p-4 opacity-90">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group mb-3">
+                    <label asp-for="SacramentProgram.ProgramDate" class="control-label fw-semibold"></label>
+                    <input asp-for="SacramentProgram.ProgramDate" class="form-control" />
+                    <span asp-validation-for="SacramentProgram.ProgramDate" class="text-danger"></span>
+                </div>
+                <div class="form-group my-3">
+                    <label asp-for="SacramentProgram.PresidingName" class="control-label fw-semibold"></label>
+                    <input asp-for="SacramentProgram.PresidingName" class="form-control" />
+                    <span asp-validation-for="SacramentProgram.PresidingName" class="text-danger"></span>
+                </div>
+                <div class="form-group my-3">
+                    <label asp-for="SacramentProgram.ConductingName" class="control-label fw-semibold"></label>
+                    <input asp-for="SacramentProgram.ConductingName" class="form-control" />
+                    <span asp-validation-for="SacramentProgram.ConductingName" class="text-danger"></span>
+                </div>
+                <div class="form-group my-3">
+                    <label asp-for="SacramentProgram.OpeningPrayerName" class="control-label fw-semibold"></label>
+                    <input asp-for="SacramentProgram.OpeningPrayerName" class="form-control" />
+                    <span asp-validation-for="SacramentProgram.OpeningPrayerName" class="text-danger"></span>
+                </div>
+                <div class="form-group my-3">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="SacramentProgram.OpeningHymnName" class="control-label fw-semibold"></label>
+                            <input asp-for="SacramentProgram.OpeningHymnName" class="form-control" />
+                            <span asp-validation-for="SacramentProgram.OpeningHymnName" class="text-danger"></span>
                         </div>
-                        <div class="form-group">
-                            <label asp-for="SacramentProgram.Speakers[0].SpeakerType" class="control-label">Speaker Type</label>
-                            <input asp-for="SacramentProgram.Speakers[0].SpeakerType" class="form-control" />
-                            <span asp-validation-for="SacramentProgram.Speakers[0].SpeakerType" class="text-danger"></span>
+                        <div class="col-md-6 mt-3 mt-md-0">
+                            <label asp-for="SacramentProgram.OpeningHymnNum" class="control-label fw-semibold"></label>
+                            <input asp-for="SacramentProgram.OpeningHymnNum" class="form-control" />
+                            <span asp-validation-for="SacramentProgram.OpeningHymnNum" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary" onclick="addSpeaker()">Add Speaker</button>
-            </div>
-            <div class="form-group">
-                <label asp-for="SacramentProgram.SpecialMusicalNumber" class="control-label"></label>
-                <input asp-for="SacramentProgram.SpecialMusicalNumber" class="form-control" />
-                <span asp-validation-for="SacramentProgram.SpecialMusicalNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SacramentProgram.IntermediateHymnName" class="control-label"></label>
-                <input asp-for="SacramentProgram.IntermediateHymnName" class="form-control" />
-                <span asp-validation-for="SacramentProgram.IntermediateHymnName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SacramentProgram.IntermediateHymnNum" class="control-label"></label>
-                <input asp-for="SacramentProgram.IntermediateHymnNum" class="form-control" />
-                <span asp-validation-for="SacramentProgram.IntermediateHymnNum" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SacramentProgram.ClosingPrayerName" class="control-label"></label>
-                <input asp-for="SacramentProgram.ClosingPrayerName" class="form-control" />
-                <span asp-validation-for="SacramentProgram.ClosingPrayerName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SacramentProgram.ClosingHymnName" class="control-label"></label>
-                <input asp-for="SacramentProgram.ClosingHymnName" class="form-control" />
-                <span asp-validation-for="SacramentProgram.ClosingHymnName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SacramentProgram.ClosingHymnNum" class="control-label"></label>
-                <input asp-for="SacramentProgram.ClosingHymnNum" class="form-control" />
-                <span asp-validation-for="SacramentProgram.ClosingHymnNum" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+                <div class="form-group my-3">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="SacramentProgram.SacramentHymnName" class="control-label fw-semibold"></label>
+                            <input asp-for="SacramentProgram.SacramentHymnName" class="form-control" />
+                            <span asp-validation-for="SacramentProgram.SacramentHymnName" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 mt-3 mt-md-0">
+                            <label asp-for="SacramentProgram.SacramentHymnNum" class="control-label fw-semibold"></label>
+                            <input asp-for="SacramentProgram.SacramentHymnNum" class="form-control" />
+                            <span asp-validation-for="SacramentProgram.SacramentHymnNum" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group my-3">
+                    <label asp-for="SacramentProgram.Speakers" class="control-label fw-semibold">Speakers</label>
+                    <div id="speaker-container">
+                        <div class="speaker-group">
+                            <div class="form-group my-3">
+                                <div class="row align-items-end">
+                                    <div class="col-md-5">
+                                        <label asp-for="SacramentProgram.Speakers[0].Name" class="control-label fw-semibold">Name</label>
+                                        <input asp-for="SacramentProgram.Speakers[0].Name" class="form-control" />
+                                        <span asp-validation-for="SacramentProgram.Speakers[0].Name" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-5 mt-3 mt-md-0">
+                                        <label asp-for="SacramentProgram.Speakers[0].SpeakerType" class="control-label fw-semibold">Speaker Type</label>
+                                        <input asp-for="SacramentProgram.Speakers[0].SpeakerType" class="form-control" placeholder="Speaker, Youth Speaker, etc" />
+                                        <span asp-validation-for="SacramentProgram.Speakers[0].SpeakerType" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-2 mt-3 mt-md-0">
+                                        <button type="button" class="btn btn-outline-danger w-100" onclick="removeSpeaker(this)" title="Remove">&#x1F5D9;</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-outline-primary mt-1" onclick="addSpeaker()">Add Speaker</button>
+                </div>
+                <div class="form-group my-3">
+                    <label asp-for="SacramentProgram.SpecialMusicalNumber" class="control-label fw-semibold"></label>
+                    <input asp-for="SacramentProgram.SpecialMusicalNumber" class="form-control" />
+                    <span asp-validation-for="SacramentProgram.SpecialMusicalNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group my-3">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="SacramentProgram.IntermediateHymnName" class="control-label fw-semibold"></label>
+                            <input asp-for="SacramentProgram.IntermediateHymnName" class="form-control" />
+                            <span asp-validation-for="SacramentProgram.IntermediateHymnName" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 mt-3 mt-md-0">
+                            <label asp-for="SacramentProgram.IntermediateHymnNum" class="control-label fw-semibold"></label>
+                            <input asp-for="SacramentProgram.IntermediateHymnNum" class="form-control" />
+                            <span asp-validation-for="SacramentProgram.IntermediateHymnNum" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group my-3">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="SacramentProgram.ClosingHymnName" class="control-label fw-semibold"></label>
+                            <input asp-for="SacramentProgram.ClosingHymnName" class="form-control" />
+                            <span asp-validation-for="SacramentProgram.ClosingHymnName" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 mt-3 mt-md-0">
+                            <label asp-for="SacramentProgram.ClosingHymnNum" class="control-label fw-semibold"></label>
+                            <input asp-for="SacramentProgram.ClosingHymnNum" class="form-control" />
+                            <span asp-validation-for="SacramentProgram.ClosingHymnNum" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group my-3">
+                    <label asp-for="SacramentProgram.ClosingPrayerName" class="control-label fw-semibold"></label>
+                    <input asp-for="SacramentProgram.ClosingPrayerName" class="form-control" />
+                    <span asp-validation-for="SacramentProgram.ClosingPrayerName" class="text-danger"></span>
+                </div>
+                <hr />
+                <div class="form-group my-3">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a asp-page="Index" class="btn btn-outline-secondary w-100">Cancel</a>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-primary w-100">Create</button>
+                        </div>
+                    </div>
 
-<div>
-    <a asp-page="Index">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 @section Scripts {
@@ -121,19 +150,31 @@
             var index = $('.speaker-group').length;
             var inputHtml = `
                 <div class="speaker-group">
-                    <div class="form-group">
-                        <label class="control-label">Name</label>
-                        <input name="SacramentProgram.Speakers[${index}].Name" class="form-control" />
-                        <span class="text-danger" data-valmsg-for="SacramentProgram.Speakers[${index}].Name" data-valmsg-replace="true"></span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Speaker Type</label>
-                        <input name="SacramentProgram.Speakers[${index}].SpeakerType" class="form-control" />
-                        <span class="text-danger" data-valmsg-for="SacramentProgram.Speakers[${index}].SpeakerType" data-valmsg-replace="true"></span>
+                    <div class="form-group my-3">
+                        <div class="row align-items-end">
+                            <div class="col-md-5">
+                                <label class="control-label fw-semibold">Name</label>
+                                <input name="SacramentProgram.Speakers[${index}].Name" class="form-control" />
+                                <span class="text-danger" data-valmsg-for="SacramentProgram.Speakers[${index}].Name" data-valmsg-replace="true"></span>
+                            </div>
+                            <div class="col-md-5 mt-3 mt-md-0">
+                                <label class="control-label fw-semibold">Speaker Type</label>
+                                <input name="SacramentProgram.Speakers[${index}].SpeakerType" class="form-control" placeholder="Speaker, Youth Speaker, etc" />
+                                <span class="text-danger" data-valmsg-for="SacramentProgram.Speakers[${index}].SpeakerType" data-valmsg-replace="true"></span>
+                            </div>
+                            <div class="col-md-2 mt-3 mt-md-0">
+                                <button type="button" class="btn btn-outline-danger w-100" onclick="removeSpeaker(this)" title="Remove">&#x1F5D9;</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             `;
             $(inputHtml).appendTo("#speaker-container");
+        }
+
+        function removeSpeaker (button) {
+            var $speakerGroup = $(button).closest('.speaker-group');
+            $speakerGroup.remove();
         }
     </script>
 }
