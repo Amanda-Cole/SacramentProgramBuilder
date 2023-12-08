@@ -101,9 +101,9 @@
                         @Html.DisplayFor(model => model.SacramentProgram.IntermediateHymnNum)
                     </div>
                 </div>
+                <div class="text-center fst-italic hymn-margin">"@Html.DisplayFor(model => model.SacramentProgram.IntermediateHymnName)"</div>
             }
 
-            <div class="text-center fst-italic hymn-margin">"@Html.DisplayFor(model => model.SacramentProgram.IntermediateHymnName)"</div>
 
             @if (Model.SacramentProgram.Speakers != null && Model.SacramentProgram.Speakers.Count > 3)
             {
